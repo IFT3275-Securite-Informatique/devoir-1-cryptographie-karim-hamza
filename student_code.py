@@ -39,6 +39,7 @@ def decrypt(C):
 
 
     # Cryptogramme divisé en bits de 8 pour traduire en message clair
+    
     octetChiffre = [C[i:i + 8] for i in range(0, len(C), 8)]
     M = "".join([k for octet in octetChiffre for k, v in dictionary.items() if octet == v])
                 
