@@ -1,5 +1,5 @@
-#entrez votre code ici.
-#Vous pouvez créer des fonctions auxiliaires et adapter le code à votre façon mais decrypt dois renvoyer le message décrypté
+# Entrez votre code ici.
+# Vous pouvez créer des fonctions auxiliaires et adapter le code à votre façon mais decrypt dois renvoyer le message décrypté
 
 
 # Fonction de décryptage de cryptogramme en message clair.
@@ -28,12 +28,14 @@ def decrypt(C):
     # (Code donné dans les directives)
 
     l = len(symboles)
+    if l > 256:
+        return False
 
     rnd.seed(1337)
-    int_keys = rnd.sample(range(256), l)
+    int_keys = rnd.sample(list(range(l)),l)
     dictionary = dict({})
     for s,k in zip(symboles,int_keys):
-        dictionary[s]="{:08b}".format(k )
+        dictionary[s]="{:08b}".format(k)
 
 
     # Cryptogramme divisé en bits de 8 pour traduire en message clair
